@@ -127,7 +127,9 @@ public class AdminGamesController {
             alert.setContentText(isEditMode ? "Jeu modifié avec succès !" : "Jeu ajouté avec succès !");
             alert.showAndWait();
         } catch (NumberFormatException e) {
-            showAlert("Erreur de saisie", "Veuillez entrer des valeurs numériques valides pour le temps et le score.");
+            showAlert("Erreur de saisie", "Valeurs numériques invalides : " + e.getMessage());
+        } catch (Exception e) {
+            showAlert("Erreur Critique", "Erreur base de données : " + e.getMessage());
         }
     }
 
