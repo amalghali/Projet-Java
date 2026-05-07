@@ -81,6 +81,8 @@ public class BattleGameController {
             intro = new AudioClip(getClass().getResource("/sounds/u_wxn5lzrjy3-military-radio-communication-222904 (1).mp3").toString());
             marching.setCycleCount(AudioClip.INDEFINITE);
             intro.setCycleCount(AudioClip.INDEFINITE);
+            marching.setVolume(0.3); // Son de marche discret
+            intro.setVolume(0.5);    // Radio militaire équilibrée
         } catch (Exception e) {
             System.out.println("Erreur de chargement des sons.");
         }
