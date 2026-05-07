@@ -11,17 +11,17 @@ public class StudentDashboardController {
 
     @FXML
     private void handlePlayQuiz(ActionEvent event) {
-        openWindow("/fxml/Quiz.fxml", "Quiz Éducatif");
+        openWindow("/fxml/Quiz.fxml", "WORKSHOP - Quiz Interactif");
     }
 
     @FXML
     private void handlePlayCode(ActionEvent event) {
-        openWindow("/fxml/CodeCorrection.fxml", "Correction de Code IA");
+        openWindow("/fxml/CodeCorrection.fxml", "WORKSHOP - Correction de Code");
     }
 
     @FXML
     private void handlePlayBattle(ActionEvent event) {
-        openWindow("/fxml/BattleGame.fxml", "Battle Royale Informatique");
+        openWindow("/fxml/BattleGame.fxml", "WORKSHOP - Opération Warzone");
     }
 
     @FXML
