@@ -191,6 +191,18 @@ public class AdminGamesController {
         txtScore.setText(String.valueOf(g.getScoreMax()));
     }
 
+    @FXML
+    private void handleLogout(javafx.event.ActionEvent event) {
+        try {
+            javafx.scene.Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("/fxml/LoginSelection.fxml"));
+            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("WORKSHOP - Portail de Connexion");
+            stage.setScene(new javafx.scene.Scene(root, 800, 500));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

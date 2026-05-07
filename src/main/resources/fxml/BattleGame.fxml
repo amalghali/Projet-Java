@@ -60,7 +60,9 @@
             <VBox fx:id="startMenu" alignment="CENTER" spacing="30.0" style="-fx-background-color: rgba(0,0,0,0.9);">
                <children>
                   <Label style="-fx-font-size: 50; -fx-text-fill: #4dff4d; -fx-font-weight: bold;" text="OPÉRATION : JAVA BATTLE" />
-                  <Button onAction="#handleStartGame" prefWidth="300" style="-fx-font-size: 20; -fx-padding: 15;" styleClass="btn-add" text="DÉMARRER LA MISSION" />
+                  <Button onAction="#selectModeIA" prefWidth="350" style="-fx-font-size: 18; -fx-padding: 15;" styleClass="btn-add" text="OPÉRATION IA (SOLO vs BOT)" />
+                  <Button onAction="#selectModeDuel" prefWidth="350" style="-fx-font-size: 18; -fx-padding: 15;" styleClass="btn-modify" text="DUEL CLASSIQUE (1 vs 1)" />
+                  <Button onAction="#selectModeTeam" prefWidth="350" style="-fx-font-size: 18; -fx-padding: 15;" styleClass="btn-delete" text="BATAILLE D'ÉQUIPE (GROUPE)" />
                   <Button onAction="#handleQuit" prefWidth="300" style="-fx-font-size: 20; -fx-padding: 15;" styleClass="btn-delete" text="QUITTER LE JEU" />
                </children>
             </VBox>

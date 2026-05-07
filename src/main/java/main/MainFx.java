@@ -10,10 +10,11 @@ public class MainFx extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Commencer par l'interface Étudiant par défaut
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/StudentDashboard.fxml"));
-        primaryStage.setTitle("Tableau de bord Étudiant");
-        primaryStage.setScene(new Scene(root, 1000, 700));
+        // Commencer par le portail de sélection au lieu du dashboard direct
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LoginSelection.fxml"));
+        primaryStage.setTitle("WORKSHOP - Portail de Connexion");
+        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

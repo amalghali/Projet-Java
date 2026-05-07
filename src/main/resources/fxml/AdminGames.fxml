@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Region?>
 
 <BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminGamesController">
    <left>
@@ -20,9 +21,12 @@
             <Label styleClass="title" text="ADMIN" />
             <VBox spacing="20.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="btnNavAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNavAdd" styleClass="btn-add" text="AJOUTER" />
-                  <Button fx:id="btnNavModify" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNavModify" styleClass="btn-modify" text="MODIFIER" />
-                  <Button fx:id="btnNavDelete" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNavDelete" styleClass="btn-delete" text="SUPPRIMER" />
+                  <Button fx:id="btnNavAdd" maxWidth="Infinity" onAction="#handleNavAdd" styleClass="btn-add" text="AJOUTER" />
+                  <Button fx:id="btnNavModify" maxWidth="Infinity" onAction="#handleNavModify" styleClass="btn-modify" text="MODIFIER" />
+                  <Button fx:id="btnNavDelete" maxWidth="Infinity" onAction="#handleNavDelete" styleClass="btn-delete" text="SUPPRIMER" />
+                  <Region VBox.vgrow="ALWAYS" />
+                  <!-- Bouton de retour en bas de la sidebar aussi par sécurité -->
+                  <Button maxWidth="Infinity" onAction="#handleLogout" style="-fx-background-color: #ffdb4d; -fx-text-fill: black; -fx-font-weight: bold;" text="⬅ RETOUR" />
                </children>
                <padding>
                   <Insets top="50.0" />
@@ -34,12 +38,16 @@
    <center>
       <VBox spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox spacing="15.0" alignment="CENTER_LEFT">
+            <HBox spacing="15.0" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 10;">
                <children>
                   <TextField fx:id="txtSearchId" promptText="Rechercher par ID..." styleClass="text-field" />
-                  <Button mnemonicParsing="false" onAction="#handleRefresh" styleClass="btn-delete" text="Mise à jour" />
+                  <Button onAction="#handleRefresh" styleClass="btn-delete" text="Mise à jour" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <!-- LE BOUTON RETOUR TRES VISIBLE ICI -->
+                  <Button onAction="#handleLogout" prefWidth="180.0" style="-fx-background-color: #ffdb4d; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 10;" text="⬅ RETOUR PORTAIL" />
                </children>
             </HBox>
+            
             <TableView fx:id="tableGames" onMouseClicked="#handleTableClick" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
@@ -49,6 +57,7 @@
                   <TableColumn fx:id="colScore" prefWidth="100.0" text="Score Max" />
               </columns>
             </TableView>
+
             <VBox fx:id="formPane" spacing="10.0" styleClass="card" visible="false">
                <children>
                   <Label fx:id="lblFormTitle" styleClass="title" text="Détails du Jeu" />
@@ -65,11 +74,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="ID:" />
-                        <Label text="Type Jeu:" GridPane.rowIndex="1" />
-                        <Label text="Difficulté:" GridPane.rowIndex="2" />
-                        <Label text="Temps Limite:" GridPane.rowIndex="3" />
-                        <Label text="Score Max:" GridPane.rowIndex="4" />
+                        <Label text="ID:" textFill="WHITE"/>
+                        <Label text="Type Jeu:" GridPane.rowIndex="1" textFill="WHITE"/>
+                        <Label text="Difficulté:" GridPane.rowIndex="2" textFill="WHITE"/>
+                        <Label text="Temps Limite:" GridPane.rowIndex="3" textFill="WHITE"/>
+                        <Label text="Score Max:" GridPane.rowIndex="4" textFill="WHITE"/>
                         <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" />
                         <TextField fx:id="txtType" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="txtDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="2" />

@@ -20,6 +20,18 @@ public class StudentDashboardController {
     }
 
     @FXML
+    private void handleLogout(ActionEvent event) {
+        try {
+            javafx.scene.Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("/fxml/LoginSelection.fxml"));
+            javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("WORKSHOP - Portail de Connexion");
+            stage.setScene(new Scene(root, 800, 500));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void handlePlayBattle(ActionEvent event) {
         openWindow("/fxml/BattleGame.fxml", "WORKSHOP - Opération Warzone");
     }

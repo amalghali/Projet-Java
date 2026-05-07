@@ -7,8 +7,6 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.sql.SQLException;
 
 public class ServiceBattle implements IService<Battle> {
 
@@ -78,18 +76,7 @@ public class ServiceBattle implements IService<Battle> {
 
     @Override
     public void ajouter(Battle b) {
-        try {
-            String sql = "INSERT INTO battle(battle_type, status, start_time, end_time, gagnant) VALUES (?,?,?,?,?)";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, b.getBattleType());
-            ps.setString(2, b.getStatus());
-            ps.setTimestamp(3, b.getStartTime() != null ? Timestamp.valueOf(b.getStartTime()) : null);
-            ps.setTimestamp(4, b.getEndTime() != null ? Timestamp.valueOf(b.getEndTime()) : null);
-            ps.setString(5, b.getGagnant());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Erreur ajouter Battle: " + e.getMessage());
-        }
+        // Optionnel : peut être redirigé vers createBattle
     }
 
     @Override
@@ -127,11 +114,10 @@ public class ServiceBattle implements IService<Battle> {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                Battle b = new Battle(rs.getInt("id"), rs.getString("battle_type"), rs.getString("status"), null, null, rs.getString("gagnant"));
-                Timestamp start = rs.getTimestamp("start_time");
-                if (start != null) b.setStartTime(start.toLocalDateTime());
-                Timestamp end = rs.getTimestamp("end_time");
-                if (end != null) b.setEndTime(end.toLocalDateTime());
+                Battle b = new Battle();
+                b.setId(rs.getInt("id"));
+                b.setBattleType(rs.getString("battle_type"));
+                b.setStatus(rs.getString("status"));
                 b.setGagnant(rs.getString("gagnant"));
                 list.add(b);
             }
