@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+/**
+ * Gestionnaire de connexion Singleton pour MySQL.
+ * Assure une instance unique de connexion pour toute l'application.
+ */
 public class Mydb {
 
     private static Mydb instance;
