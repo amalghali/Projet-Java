@@ -48,6 +48,10 @@ public class ChatbotController {
         
         if (l.contains("polymorphisme")) return "Le polymorphisme permet d'utiliser un seul symbole pour représenter plusieurs types différents. \nEn Java, cela se fait via l'overriding (redéfinition) et l'overloading (surcharge).";
         
+        if (l.contains("encapsulation")) return "L'encapsulation consiste à cacher les détails d'implémentation d'un objet et à \nne laisser l'accès qu'à travers des méthodes publiques (Getters/Setters).";
+        
+        if (l.contains("abstraction")) return "L'abstraction permet de se concentrer sur l'essentiel d'un objet. \nOn utilise des classes abstraites ou des interfaces pour définir des contrats de comportement.";
+        
         if (l.contains("garbage collector")) return "Le Garbage Collector est le mécanisme automatique de Java qui libère la mémoire \nen supprimant les objets qui ne sont plus référencés. Plus besoin de 'free()' comme en C !";
 
         if (l.contains("java") || l.contains("code")) return "Java est un langage fortement typé. Pour devenir un expert, \nmaîtrisez les collections (List, Map) et les nouveautés des Streams de Java 8+.";
