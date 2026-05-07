@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane fx:id="mainPane" prefHeight="750.0" prefWidth="1100.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BattleGameController">
+   <top>
+      <HBox spacing="40.0" style="-fx-background-color: rgba(0,0,0,0.8); -fx-padding: 15; -fx-border-color: #4dff4d; -fx-border-width: 0 0 2 0;">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="COMMANDO STATUS" style="-fx-text-fill: #4dff4d; -fx-font-weight: bold; -fx-font-size: 12;" />
+                  <ProgressBar fx:id="playerHealth" maxWidth="Infinity" progress="1.0" style="-fx-accent: #00ff00;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="lblScore" style="-fx-font-size: 24; -fx-text-fill: white; -fx-font-weight: bold;" text="INTEL: 0" />
+                  <Label fx:id="lblBestScore" text="RECORD: 0" style="-fx-text-fill: #ffdb4d; -fx-font-size: 10;" />
+               </children>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="TARGET DESTROYED %" style="-fx-text-fill: #ff4d4d; -fx-font-weight: bold; -fx-font-size: 12;" />
+                  <ProgressBar fx:id="botHealth" maxWidth="Infinity" progress="1.0" style="-fx-accent: #ff0000;" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <StackPane>
+         <children>
+            <Pane fx:id="arena">
+               <children>
+                  <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true">
+                     <image><Image url="@../images/battle_bg.png" /></image>
+                  </ImageView>
+                  <ImageView fx:id="playerAvatar" fitHeight="120.0" fitWidth="100.0" layoutX="100" layoutY="400">
+                     <image><Image url="@../images/soldier.png" /></image>
+                  </ImageView>
+                  <ImageView fx:id="botAvatar" fitHeight="150.0" fitWidth="150.0" layoutX="850" layoutY="380">
+                     <image><Image url="@../images/drone.png" /></image>
+                  </ImageView>
+                  <Circle fx:id="muzzleFlash" fill="#ffdb4d" radius="20.0" visible="false" />
+               </children>
+            </Pane>
+            
+            <!-- Menu de départ -->
+            <VBox fx:id="startMenu" alignment="CENTER" spacing="30.0" style="-fx-background-color: rgba(0,0,0,0.9);">
+               <children>
+                  <Label style="-fx-font-size: 50; -fx-text-fill: #4dff4d; -fx-font-weight: bold;" text="OPÉRATION : JAVA BATTLE" />
+                  <Button onAction="#handleStartGame" prefWidth="300" style="-fx-font-size: 20; -fx-padding: 15;" styleClass="btn-add" text="DÉMARRER LA MISSION" />
+                  <Button onAction="#handleQuit" prefWidth="300" style="-fx-font-size: 20; -fx-padding: 15;" styleClass="btn-delete" text="QUITTER LE JEU" />
+               </children>
+            </VBox>
+
+            <VBox fx:id="questionPanel" alignment="CENTER" spacing="25.0" style="-fx-background-color: rgba(0, 0, 0, 0.85); -fx-border-color: #4dff4d; -fx-border-width: 3; -fx-padding: 40;" visible="false" maxWidth="700" maxHeight="450">
+               <children>
+                  <Label style="-fx-text-fill: #ff4d4d; -fx-font-weight: bold;" text="[ INTERCEPTION DE DONNÉES EN COURS ]" />
+                  <Label fx:id="lblTimer" style="-fx-font-size: 40; -fx-text-fill: #ffdb4d;" text="15" />
+                  <Label fx:id="lblQuestion" style="-fx-font-size: 22; -fx-text-fill: white; -fx-text-alignment: center;" text="DÉCRYPTAGE DU CODE REQUIS..." wrapText="true" />
+                  <HBox spacing="15.0" alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnOpt1" minWidth="200" onAction="#handleAnswer" styleClass="btn-add" text="Option 1" />
+                        <Button fx:id="btnOpt2" minWidth="200" onAction="#handleAnswer" styleClass="btn-modify" text="Option 2" />
+                        <Button fx:id="btnOpt3" minWidth="200" onAction="#handleAnswer" styleClass="btn-delete" text="Option 3" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <VBox fx:id="badgeOverlay" alignment="CENTER" spacing="35.0" style="-fx-background-color: rgba(0,0,0,0.95);" visible="false">
+               <children>
+                  <Label fx:id="lblResultTitle" style="-fx-font-size: 60; -fx-text-fill: #4dff4d; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, #4dff4d, 20, 0.5, 0, 0);" text="MISSION RÉUSSIE !" />
+                  <ImageView fx:id="imgBadge" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="lblBadgeLarge" style="-fx-font-size: 50; -fx-text-fill: #ffdb4d; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, black, 10, 0.8, 0, 0);" text="ELITE COMMANDER" />
+                  <Label fx:id="lblFinalScore" style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-family: 'Courier New';" />
+                  <HBox spacing="30.0" alignment="CENTER">
+                     <children>
+                        <Button onAction="#handleRestart" prefWidth="250" style="-fx-font-size: 18; -fx-padding: 15;" styleClass="btn-modify" text="REPARTIR EN MISSION" />
+                        <Button onAction="#handleQuit" prefWidth="250" style="-fx-font-size: 18; -fx-padding: 15;" styleClass="btn-delete" text="QUITTER LA BASE" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

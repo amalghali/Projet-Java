@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminGamesController">
+   <left>
+      <VBox styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="title" text="ADMIN" />
+            <VBox spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="btnNavAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNavAdd" styleClass="btn-add" text="AJOUTER" />
+                  <Button fx:id="btnNavModify" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNavModify" styleClass="btn-modify" text="MODIFIER" />
+                  <Button fx:id="btnNavDelete" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNavDelete" styleClass="btn-delete" text="SUPPRIMER" />
+               </children>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+               <children>
+                  <TextField fx:id="txtSearchId" promptText="Rechercher par ID..." styleClass="text-field" />
+                  <Button mnemonicParsing="false" onAction="#handleRefresh" styleClass="btn-delete" text="Mise à jour" />
+               </children>
+            </HBox>
+            <TableView fx:id="tableGames" onMouseClicked="#handleTableClick" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="colType" prefWidth="150.0" text="Type" />
+                  <TableColumn fx:id="colDifficulty" prefWidth="150.0" text="Difficulté" />
+                  <TableColumn fx:id="colTime" prefWidth="100.0" text="Temps Limite" />
+                  <TableColumn fx:id="colScore" prefWidth="100.0" text="Score Max" />
+              </columns>
+            </TableView>
+            <VBox fx:id="formPane" spacing="10.0" styleClass="card" visible="false">
+               <children>
+                  <Label fx:id="lblFormTitle" styleClass="title" text="Détails du Jeu" />
+                  <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="ID:" />
+                        <Label text="Type Jeu:" GridPane.rowIndex="1" />
+                        <Label text="Difficulté:" GridPane.rowIndex="2" />
+                        <Label text="Temps Limite:" GridPane.rowIndex="3" />
+                        <Label text="Score Max:" GridPane.rowIndex="4" />
+                        <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtType" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtTime" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtScore" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleCancel" text="Annuler" />
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#handleSave" styleClass="btn-add" text="Enregistrer" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
