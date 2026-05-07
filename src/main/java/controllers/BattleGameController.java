@@ -268,5 +268,7 @@ public class BattleGameController {
         questions.add(new Question("Le port SQL par défaut est :", new String[]{"80", "3306", "443"}, "3306"));
         questions.add(new Question("Java est un langage :", new String[]{"Compilé", "Interprété", "Les deux"}, "Les deux"));
         questions.add(new Question("Quel mot clé crée une constante ?", new String[]{"static", "final", "const"}, "final"));
+        questions.add(new Question("Une interface peut-elle avoir du code ?", new String[]{"Oui (default)", "Non jamais", "Seulement en C#"}, "Oui (default)"));
+        questions.add(new Question("Quel package contient 'ArrayList' ?", new String[]{"java.io", "java.util", "java.lang"}, "java.util"));
     }
 }
