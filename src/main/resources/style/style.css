@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: #1a0033; /* Very dark mauve */
+    -fx-background-color: #1a0033;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
@@ -34,28 +34,39 @@
     -fx-background-radius: 8;
     -fx-padding: 10 20;
     -fx-cursor: hand;
+    -fx-transition: 0.3s;
 }
 
 .btn-add {
-    -fx-background-color: #ff4d4d; /* Red */
+    -fx-background-color: #00ff00;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,255,0,0.6), 10, 0, 0, 0);
 }
 .btn-add:hover {
-    -fx-background-color: #ff6666;
+    -fx-background-color: #4dff4d;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 .btn-modify {
-    -fx-background-color: #ffdb4d; /* Yellow */
-    -fx-text-fill: #1a0033; /* Dark text for yellow */
+    -fx-background-color: #ffdb4d;
+    -fx-text-fill: #1a0033;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,219,77,0.6), 10, 0, 0, 0);
 }
 .btn-modify:hover {
     -fx-background-color: #ffea80;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 .btn-delete {
-    -fx-background-color: #4d94ff; /* Blue */
+    -fx-background-color: #ff4d4d;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,77,77,0.6), 10, 0, 0, 0);
 }
 .btn-delete:hover {
-    -fx-background-color: #80b3ff;
+    -fx-background-color: #ff6666;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 .label {
